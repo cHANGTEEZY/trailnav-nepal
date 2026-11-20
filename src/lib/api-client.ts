@@ -1,5 +1,4 @@
 import { create, type AxiosInstance } from "axios";
-import { router } from "expo-router";
 
 import { getCookie } from "@/lib/auth-client";
 import { getApiUrl } from "@/utils/env";
@@ -46,17 +45,6 @@ export function createApiClient(): AxiosInstance {
       return config;
     },
     (error) => Promise.reject(error),
-  );
-
-  client.interceptors.response.use(
-    (response) => response,
-    async (error) => {
-      if (error.response?.status === 401) {
-        // Safe to call even if already on an auth screen.
-        router.replace("/sign-in");
-      }
-      return Promise.reject(error);
-    },
   );
 
   return client;

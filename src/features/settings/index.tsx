@@ -1,17 +1,13 @@
 import { router } from "expo-router";
-import { Alert, Linking, View } from "react-native";
+import { Linking, View } from "react-native";
 import { useUniwind } from "uniwind";
 
-import {
-  Logout01Icon,
-  Mail01Icon,
-  PaintBrush01Icon,
-} from "@hugeicons/core-free-icons";
+import { Mail01Icon, PaintBrush01Icon } from "@hugeicons/core-free-icons";
 import GoBackButton from "@/components/GoBackButton";
 import CollapsedLargeHeader from "@/components/layouts/CollapsedLargeHeader";
 import MeshBackground from "@/components/MeshBackground";
 import ProfileButton from "@/components/ProfileButton";
-import { authClient, useSession } from "@/lib/auth-client";
+import { useSession } from "@/lib/auth-client";
 
 import { Typography } from "heroui-native/text";
 
@@ -35,24 +31,6 @@ export default function Settings() {
 
   const name = session?.user?.name?.trim() || "Your profile";
   const email = session?.user?.email ?? "";
-
-  const confirmSignOut = () => {
-    Alert.alert(
-      "Sign out?",
-      "You'll need your email and password to sign back in.",
-      [
-        { text: "Cancel", style: "cancel" },
-        {
-          text: "Sign out",
-          style: "destructive",
-          onPress: async () => {
-            await authClient.signOut();
-            router.replace("/sign-in");
-          },
-        },
-      ],
-    );
-  };
 
   return (
     <View className="flex-1 bg-background">
@@ -85,15 +63,6 @@ export default function Settings() {
               iconBackground="#0EA5E9"
               external
               onPress={openSupport}
-            />
-          </SettingsSection>
-
-          <SettingsSection>
-            <SettingsRow
-              title="Sign out"
-              icon={Logout01Icon}
-              iconBackground="#EF4444"
-              onPress={confirmSignOut}
             />
           </SettingsSection>
 
