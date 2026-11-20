@@ -33,8 +33,6 @@ const DUMMY_SESSION = {
 export const authClient = createAuthClient({
   baseURL: getApiUrl(),
   plugins: [
-    // Expo plugin types lag behind better-auth core fetch typings.
-    // @ts-expect-error TS2322 — getActions signature mismatch between packages
     expoClient({
       scheme: "receiptrival",
       storagePrefix: "receiptrival",

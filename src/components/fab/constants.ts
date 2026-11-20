@@ -1,6 +1,6 @@
 import { Platform } from "react-native";
 
-import type { SpringTransition, TimingTransition } from "react-native-ease";
+import type { SpringTransition, TimingTransition } from "@/components/ease-view";
 
 /** Diameter of the main trigger button. */
 export const FAB_MAIN_SIZE = 56;

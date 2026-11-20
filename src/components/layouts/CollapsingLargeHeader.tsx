@@ -9,7 +9,6 @@ import {
   type NativeSyntheticEvent,
   type ViewStyle,
 } from "react-native";
-import { EaseView } from "react-native-ease/uniwind";
 import Animated, {
   Extrapolation,
   interpolate,
@@ -19,6 +18,7 @@ import Animated, {
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { ScrollViewMarker } from "react-native-screens/experimental";
 
+import { EaseView } from "@/components/ease-view";
 import { useAppColorScheme } from "@/hooks/use-app-color-scheme";
 
 import { Typography } from "heroui-native/text";

@@ -1,7 +1,8 @@
 import { HugeiconsIcon } from "@hugeicons/react-native";
 import { View } from "react-native";
-import { EaseView } from "react-native-ease/uniwind";
 import { useCSSVariable } from "uniwind";
+
+import { EaseView } from "@/components/ease-view";
 
 import HapticPressable from "@/components/HapticButton";
 

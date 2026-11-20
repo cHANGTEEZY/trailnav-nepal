@@ -11,8 +11,9 @@ import {
   type ReactNode,
 } from "react";
 import { Pressable, StyleSheet, View } from "react-native";
-import { EaseView } from "react-native-ease/uniwind";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+
+import { EaseView } from "@/components/ease-view";
 import { useCSSVariable } from "uniwind";
 
 import HapticPressable from "@/components/HapticButton";
