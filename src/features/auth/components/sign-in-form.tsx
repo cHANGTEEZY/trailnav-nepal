@@ -1,7 +1,7 @@
 import { useForm } from "@tanstack/react-form";
 import { router } from "expo-router";
 import { useRef, useState } from "react";
-import { type TextInput, View } from "react-native";
+import { type TextInputInstance, View } from "react-native";
 
 import { authClient, useSession } from "@/lib/auth-client";
 import { getFieldError } from "@/utils/errors";
@@ -17,7 +17,7 @@ import { AuthFooter } from "./auth-footer";
 
 export function SignInForm() {
   const [error, setError] = useState<string | null>(null);
-  const passwordRef = useRef<TextInput>(null);
+  const passwordRef = useRef<TextInputInstance>(null);
   const { refetch } = useSession();
 
   const form = useForm({

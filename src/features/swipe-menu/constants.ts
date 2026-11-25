@@ -7,7 +7,7 @@ import {
 
 import type { SwipeMenuDestination } from "./types";
 
-export const MENU_TITLE = "ReceiptRival";
+export const MENU_TITLE = "TrailNav Nepal";
 
 export const NAV_DESTINATIONS = [
   {

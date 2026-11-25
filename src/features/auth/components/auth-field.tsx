@@ -1,5 +1,5 @@
 import { forwardRef, useState } from "react";
-import { Pressable, type TextInput, View } from "react-native";
+import { Pressable, type TextInputInstance, View } from "react-native";
 
 import { EyeIcon, EyeOffIcon } from "@/components/icons";
 
@@ -16,7 +16,7 @@ type AuthFieldProps = InputProps & {
   isRequired?: boolean;
 };
 
-export const AuthField = forwardRef<TextInput, AuthFieldProps>(
+export const AuthField = forwardRef<TextInputInstance, AuthFieldProps>(
   ({ label, error, description, isRequired, ...inputProps }, ref) => {
     return (
       <TextField isInvalid={Boolean(error)} isRequired={isRequired}>
@@ -33,7 +33,7 @@ export const AuthField = forwardRef<TextInput, AuthFieldProps>(
 
 AuthField.displayName = "AuthField";
 
-export const AuthPasswordField = forwardRef<TextInput, AuthFieldProps>(
+export const AuthPasswordField = forwardRef<TextInputInstance, AuthFieldProps>(
   ({ label, error, description, isRequired, ...inputProps }, ref) => {
     const [visible, setVisible] = useState(false);
 

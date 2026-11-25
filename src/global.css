@@ -21,6 +21,7 @@
 }
 
 @layer theme {
+  :root {
   @variant light {
     --background: oklch(0.9702 0 0);
     --foreground: oklch(0.2103 0.0059 285.89);
@@ -136,6 +137,7 @@
       0 12px 32px 0 rgba(0, 0, 0, 0.28);
 
     --field-shadow: 0 0 0 0 transparent;
+  }
   }
 }
 
