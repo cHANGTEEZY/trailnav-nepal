@@ -13,6 +13,14 @@ config.resolver.unstable_conditionNames = [
   "default",
 ];
 
+// Support offline MapLibre tile archives (.mbtiles) and Drizzle SQL migrations (.sql).
+if (!config.resolver.assetExts.includes("mbtiles")) {
+  config.resolver.assetExts.push("mbtiles");
+}
+if (!config.resolver.sourceExts.includes("sql")) {
+  config.resolver.sourceExts.push("sql");
+}
+
 const withUniwind = withUniwindConfig(config, {
   cssEntryFile: "./src/global.css",
   dtsFile: "./src/uniwind-types.d.ts",

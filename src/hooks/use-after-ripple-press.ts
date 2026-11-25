@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useRef } from "react";
-import { InteractionManager } from "react-native";
 
 /** Default HeroUI PressableFeedback.Ripple `progress.baseDuration`. */
 export const DEFAULT_RIPPLE_SETTLE_MS = 200;
@@ -23,7 +22,7 @@ export function useAfterRipplePress(
 ) {
   const actionRef = useRef(action);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const interactionRef = useRef<{ cancel: () => void } | null>(null);
+  const idleRef = useRef<number | null>(null);
 
   useEffect(() => {
     actionRef.current = action;
@@ -32,7 +31,7 @@ export function useAfterRipplePress(
   useEffect(() => {
     return () => {
       if (timerRef.current) clearTimeout(timerRef.current);
-      interactionRef.current?.cancel();
+      if (idleRef.current != null) cancelIdleCallback(idleRef.current);
     };
   }, []);
 
@@ -40,10 +39,13 @@ export function useAfterRipplePress(
     if (!enabled) return;
 
     if (timerRef.current) clearTimeout(timerRef.current);
-    interactionRef.current?.cancel();
-    interactionRef.current = null;
+    if (idleRef.current != null) {
+      cancelIdleCallback(idleRef.current);
+      idleRef.current = null;
+    }
 
     const run = () => {
+      idleRef.current = null;
       actionRef.current();
     };
 
@@ -53,7 +55,7 @@ export function useAfterRipplePress(
         run();
         return;
       }
-      interactionRef.current = InteractionManager.runAfterInteractions(run);
+      idleRef.current = requestIdleCallback(run);
     }, delayMs);
   }, [afterInteractions, delayMs, enabled]);
 

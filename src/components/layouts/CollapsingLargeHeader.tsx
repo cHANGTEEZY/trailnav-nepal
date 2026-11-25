@@ -7,6 +7,7 @@ import {
   View,
   type NativeScrollEvent,
   type NativeSyntheticEvent,
+  type ViewInstance,
   type ViewStyle,
 } from "react-native";
 import Animated, {
@@ -49,7 +50,7 @@ export default function CollapsingLargeHeader({
   const insets = useSafeAreaInsets();
   const scheme = useAppColorScheme();
   const scrollY = useSharedValue(0);
-  const blurTargetRef = useRef<View | null>(null);
+  const blurTargetRef = useRef<ViewInstance>(null);
   const [compactTitleVisible, setCompactTitleVisible] = useState(false);
 
   const compactBarHeight = insets.top + COMPACT_BAR_CONTENT_HEIGHT;

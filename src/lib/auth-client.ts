@@ -4,10 +4,6 @@ import * as SecureStore from "expo-secure-store";
 
 import { getApiUrl } from "@/utils/env";
 
-/**
- * Local stand-in until the API exists. The app treats this user as signed in
- * and never calls Better Auth on boot.
- */
 export const DUMMY_USER = {
   id: "user_maya",
   name: "Maya Sherpa",
@@ -33,9 +29,10 @@ const DUMMY_SESSION = {
 export const authClient = createAuthClient({
   baseURL: getApiUrl(),
   plugins: [
+    // @ts-ignore
     expoClient({
-      scheme: "receiptrival",
-      storagePrefix: "receiptrival",
+      scheme: "trailnav",
+      storagePrefix: "trailnav",
       storage: SecureStore,
     }),
   ],

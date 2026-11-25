@@ -1,15 +1,15 @@
 {
   "expo": {
-    "name": "ReceiptRival",
-    "slug": "ReceiptRival",
+    "name": "TrailNav Nepal",
+    "slug": "trailnav-nepal",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "receiptrival",
+    "scheme": "trailnav",
     "userInterfaceStyle": "automatic",
     "ios": {
       "icon": "./assets/expo.icon",
-      "bundleIdentifier": "com.changteezy.ReceiptRival",
+      "bundleIdentifier": "com.changteezy.trailnavnepal",
       "appleTeamId": "XPZVK3T5VQ"
     },
     "android": {
@@ -20,7 +20,7 @@
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
       "predictiveBackGestureEnabled": false,
-      "package": "com.changteezy.receiptrival"
+      "package": "com.changteezy.trailnavnepal"
     },
     "web": {
       "output": "static",
@@ -42,7 +42,47 @@
       "expo-secure-store",
       "expo-image",
       "expo-status-bar",
-      "expo-web-browser"
+      "expo-web-browser",
+      "expo-font",
+      "@maplibre/maplibre-react-native",
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Allow $(PRODUCT_NAME) to record your trek in the background when the screen is off.",
+          "locationWhenInUsePermission": "Allow $(PRODUCT_NAME) to display your live GPS position on offline topographic maps and warn if you drift off-trail.",
+          "isIosBackgroundLocationEnabled": true,
+          "isAndroidBackgroundLocationEnabled": true,
+          "isAndroidForegroundServiceEnabled": true
+        }
+      ],
+      [
+        "expo-sensors",
+        {
+          "motionPermission": "Allow $(PRODUCT_NAME) to access motion and barometer sensors to measure altitude gain and conserve battery while stationary."
+        }
+      ],
+      [
+        "expo-file-system",
+        {
+          "supportsOpeningDocumentsInPlace": true,
+          "enableFileSharing": true
+        }
+      ],
+      [
+        "expo-sqlite",
+        {
+          "enableFTS": true
+        }
+      ],
+      [
+        "expo-notifications",
+        {
+          "color": "#3B82F6",
+          "defaultChannel": "default",
+          "enableRemoteNotifications": false
+        }
+      ],
+      "expo-asset"
     ],
     "experiments": {
       "typedRoutes": true,

@@ -5,6 +5,7 @@ import {
   ScrollView,
   StyleSheet,
   View,
+  type ViewInstance,
   type ViewStyle,
 } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
@@ -34,7 +35,7 @@ export default function CollapsedLargeHeader({
 }: CollapsedLargeHeaderProps) {
   const insets = useSafeAreaInsets();
   const scheme = useAppColorScheme();
-  const blurTargetRef = useRef<View | null>(null);
+  const blurTargetRef = useRef<ViewInstance>(null);
   const barHeight = insets.top + BAR_CONTENT_HEIGHT;
   const isDark = scheme === "dark";
 
